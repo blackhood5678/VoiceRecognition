@@ -63,9 +63,6 @@
 			window.onload = ()=>{
 				document.getElementsByName("inputBox")[0].focus();
 			};
-			
-			
-			//Just testing something :)
 			function tellScroll(){
 				let elem = document.getElementsByName("inputBox")[0];
 				
@@ -82,20 +79,15 @@
 		    var wrapperSection = document.getElementById("chatWrapper");
 			var holderDiv = document.getElementById("chatHolder");
 
-		   
-		    // Now we add the most important point of the plugin, the commands
-		    // This library is very flexible and now we will see why :
-		    // Every command is a literal object
 		    var endingLine = "";
 		    artyom.addCommands([
 	        {
 	            description:"Artyom can talk too, lets say something if we say hello",
 	            indexes:["здравей","hey"],
 	            action:function(i){
-		            // i = the index of the array of indexes option
 
 		            if(i == 0){
-			            //You say : "hello"
+			           
 			            //document.getElementById('time').innerHTML = "Hello ! How are you? I don't want to talk today";
 			            //document.getElementById('user-computer-dialogue-lines').innerHTML += "Hello ! How are you? I don't want to talk today" + endingLine;
 			            //document.getElementById('computer-dialogue-lines').innerHTML = "Hello ! How are you? I don't want to talk today" + endingLine;
@@ -104,6 +96,7 @@
 	          	}
 	        },
 	        {
+
 	          	description:"Say goodbye",
 	          	indexes:["goodbye"],
 	          	action:function(){
@@ -201,7 +194,7 @@
 			        if (e.keyCode == 13) {
 				        submitMessage();
 			    	}
-			});
+				});
 
 	        function submitMessage() {
 	        	var textToSubmit = $("#inputTextArea").val();
@@ -285,31 +278,9 @@
 	     	}
 
 	      	window.onload = function(){
-	         //  	var tab = document.getElementById("commands-list");
-	         //  	var commands =  artyom.getAvailableCommands();
-	         //  	var html = '';
-
-	         //  	for(var i = 0;i < commands.length;i++){
-	         //    	var command = commands[i];
-	         //    	html += command.description + " : <span style='color:blue;'>"+command.indexes.toString()+"</span><br>";
-	         //  	}
-
-	         //  	tab.innerHTML = html;
-
 	          	artyom.initialize({lang:"en-GB"});;
-
-	        	// var vocesitas = [
-		        //     {lang:"es-ES",description: "Espanol"},
-		        //     {lang:"de-DE",description: "Deutsch"},
-		        //     {lang:"pt-PT",description: "Portugues"},
-		        //     {lang:"it-IT",description: "Italiano"}
-	       		//  ];
-
-	        	// vocesitas.forEach(function(voice){
-	        	//     $('#select-voice').append($('<option>', {value:voice.lang, text:voice.description}));
-	        	// });
 	      	};
-
+			
 
     </script>
 	</body>
