@@ -63,9 +63,6 @@
 			window.onload = ()=>{
 				document.getElementsByName("inputBox")[0].focus();
 			};
-			
-			
-			//Just testing something :)
 			function tellScroll(){
 				let elem = document.getElementsByName("inputBox")[0];
 				
@@ -82,20 +79,15 @@
 		    var wrapperSection = document.getElementById("chatWrapper");
 			var holderDiv = document.getElementById("chatHolder");
 
-		   
-		    // Now we add the most important point of the plugin, the commands
-		    // This library is very flexible and now we will see why :
-		    // Every command is a literal object
 		    var endingLine = "";
 		    artyom.addCommands([
 	        {
 	            description:"Artyom can talk too, lets say something if we say hello",
-	            indexes:["здравей","hey"],
+	            indexes:["hello","hey"],
 	            action:function(i){
-		            // i = the index of the array of indexes option
 
 		            if(i == 0){
-			            //You say : "hello"
+			           
 			            //document.getElementById('time').innerHTML = "Hello ! How are you? I don't want to talk today";
 			            //document.getElementById('user-computer-dialogue-lines').innerHTML += "Hello ! How are you? I don't want to talk today" + endingLine;
 			            //document.getElementById('computer-dialogue-lines').innerHTML = "Hello ! How are you? I don't want to talk today" + endingLine;
@@ -104,6 +96,7 @@
 	          	}
 	        },
 	        {
+
 	          	description:"Say goodbye",
 	          	indexes:["goodbye"],
 	          	action:function(){
@@ -111,30 +104,71 @@
 	          	}
 	        },
 			{
+	          	description:"order pizza",
+	          	indexes:["I want to kill myself","I want to end my life"],
+	          	action:function(){
+				
+					createComputerDialogueBox("From where do you want me to order your knife or you would like a rope" + endingLine);
+	          	}
+	        },
+			{
+	          	description:"",
+	          	indexes:["I want to kill myself","I want to end my life"],
+	          	action:function(){
+				
+					createComputerDialogueBox("From where do you want me to order your knife or you would like a rope" + endingLine);
+	          	}
+	        },
+			{
 	          	description:"order pizza 1",
 	          	indexes:["I want a pizza","I want to order a pizza"],
 	          	action:function(){
 				
-					createComputerDialogueBox("From where do you want to order your pizza" + endingLine);
+					createComputerDialogueBox("Would you want custom or premade" + endingLine);
+	          	}
+	        },
+			{
+	          	description:"order pizza 1.1",
+	          	indexes:["I want a * pizza","I want to order a * pizza"],
+	          	action:function(){
+				
+					createComputerDialogueBox("What pizza do you want to order" + endingLine);
+	          	}
+	        },
+			{
+	          	description:"order pizza 1.2",
+	          	indexes:["I want a * pizza","I want to order a * pizza"],
+	          	action:function(){
+				
+					createComputerDialogueBox("What type of that pizza do you want to order" + endingLine);
 	          	}
 	        },
 			{
 	          	description:"order pizza 2",
-	          	indexes:["from *","I want to order my pizza from *"],
+	          	indexes:["I want *","I want to order *"],
 				smart:true,
 	          	action:function(i, wildcard){
-					var order = [place => wildcard];
-					console.log(order);
-					createComputerDialogueBox("Ok your pizza will be ordered from " + wildcard + " . What size would you like your pizza?" + endingLine);
+					var order = [type => wildcard];
+					createComputerDialogueBox("Ok your pizza type will be" + wildcard + " . Which pizza do you want" + endingLine);
+					
 	          	}
 	        },
 			{
 	          	description:"order pizza 3",
-	          	indexes:["the size will be a *"],
+	          	indexes:["I want * type", "I want *"],
 				smart:true,
 	          	action:function(i, wildcard){
 					
-					createComputerDialogueBox("Ok your pizza will be a " + wildcard + " size. Would you like something for drink?" + endingLine);
+					createComputerDialogueBox("Ok your pizza will be a " + wildcard + " type. What size do you want?" + endingLine);
+	          	}
+	        },
+			{
+	          	description:"order pizza 3.1",
+	          	indexes:["I want * size", "I want *"],
+				smart:true,
+	          	action:function(i, wildcard){
+					
+					createComputerDialogueBox("Ok your pizza size  will be a " + wildcard + " size. Would you like somethink for drink?" + endingLine);
 	          	}
 	        },
 			{
@@ -201,7 +235,7 @@
 			        if (e.keyCode == 13) {
 				        submitMessage();
 			    	}
-			});
+				});
 
 	        function submitMessage() {
 	        	var textToSubmit = $("#inputTextArea").val();
@@ -285,31 +319,9 @@
 	     	}
 
 	      	window.onload = function(){
-	         //  	var tab = document.getElementById("commands-list");
-	         //  	var commands =  artyom.getAvailableCommands();
-	         //  	var html = '';
-
-	         //  	for(var i = 0;i < commands.length;i++){
-	         //    	var command = commands[i];
-	         //    	html += command.description + " : <span style='color:blue;'>"+command.indexes.toString()+"</span><br>";
-	         //  	}
-
-	         //  	tab.innerHTML = html;
-
 	          	artyom.initialize({lang:"en-GB"});;
-
-	        	// var vocesitas = [
-		        //     {lang:"es-ES",description: "Espanol"},
-		        //     {lang:"de-DE",description: "Deutsch"},
-		        //     {lang:"pt-PT",description: "Portugues"},
-		        //     {lang:"it-IT",description: "Italiano"}
-	       		//  ];
-
-	        	// vocesitas.forEach(function(voice){
-	        	//     $('#select-voice').append($('<option>', {value:voice.lang, text:voice.description}));
-	        	// });
 	      	};
-
+			
 
     </script>
 	</body>
